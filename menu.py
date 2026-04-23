@@ -4,18 +4,6 @@ from telebot.types import Message
 from telebot.types import InlineKeyboardMarkup
 from telebot.types import InlineKeyboardButton
 
-map = {
-    'Майнкрафт сервер': {
-        'Подключение': 'how_connect_server',
-        'Информация': 'server_info'
-    },
-    'Управление профилем': {
-        'Изменить аву': 'change_avatar',
-        'Изменить имя': 'change_name',
-        'Изменить описание': 'change_about'
-    },
-    'В чём прикол бота?': 'info_bot'
-}
 
 class InlineMenu:
     def __init__(self,
@@ -97,11 +85,3 @@ class InlineMenu:
                                      pass_bot=True)
     
         return bot
-
-
-if __name__ == "__main__":
-    token = "8718029801:AAGM1AqvDW_I0Tjm2A5mHX1H2qpcLTbdg7Y"
-    bot = TeleBot(token=token)
-    test = InlineMenu(trigger_text='testmenu', response_text='Меню менеджера', map=map)
-    bot = test.main_capture(bot)
-    bot.polling()
