@@ -90,5 +90,3 @@ class FastMessageHandler:
             )
                     
         return bot
-        
-
