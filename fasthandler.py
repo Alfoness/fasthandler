@@ -4,11 +4,10 @@ from telebot import types
 
 class FastMessageHandler:
     def __init__(self,
-                 trigger_text: str,\
+                 trigger_text: str,
                  response_text: str | None, #HTML markdown
                  keyboard: types.InlineKeyboardMarkup | types.ReplyKeyboardMarkup = None,
                  photo: str = None,
-                 params: dict = None,
                  set_command: bool = False,
                  description_command: str = "🔸"):
         
@@ -21,7 +20,6 @@ class FastMessageHandler:
             self.method = "sendMessage"
         else:
             self.method = "sendPhoto"
-        self.params = params
         self.set_command = set_command
         
 
@@ -65,6 +63,8 @@ class FastMessageHandler:
         
         return bot
     
+    
+    @staticmethod
     def fast_register_list(objects: list, bot: TeleBot) -> TeleBot:
         for obj in objects:
             if obj.method == "sendMessage":
